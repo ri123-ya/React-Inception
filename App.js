@@ -1,19 +1,34 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+/*
 const heading = React.createElement(
     "div",
     {id:'parent'},
-     React.createElement(
-    "div",
-    {id:'child'},
-    React.createElement("h1",{},"I'm react child")
-    
-)
-);
+    "I'm react child");
+
 console.log(heading); //return object
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
+*/
 
-{/* <div id="parent">
-    <div id="child">
-        <h1>I'm react children</h1>
-    </div>
-</div> */}
+/******************/
+
+//JSX !== HTML but similar to it 
+//this is not proper Jsx that Js engine understand (ECMAscript)
+//parcel will transpiled this before it reaches JS - Babel does it  
+
+//JSX => React.createElement => ReactElement-JS Object => HTMLElement(render)  
+
+
+const jsxHeading = <h1 id="parent">Namaste REact using JSX</h1>
+
+//for multiple line use () for babel to understand
+const jsxHeading2 = (<h1 id="parent">Namaste
+    REact using JSX2</h1>)
+
+console.log(jsxHeading);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(jsxHeading);
+root.render(jsxHeading2);
