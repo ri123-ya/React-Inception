@@ -1,0 +1,20 @@
+{
+  "name": "my_react",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel Hello_world.html",
+    "build": "parcel build Hello_world.html",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
