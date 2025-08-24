@@ -1,0 +1,49 @@
+.header{
+    display:flex;
+    justify-content: space-between;
+    position:sticky;
+    top:0;
+    background-color: #fcfcfc;
+}
+
+.logo{
+    width: 109px;
+    height: 86px;
+}
+
+.nav > ul{
+   display: flex; 
+}
+
+.nav > ul > li {
+    list-style-type: none;
+    margin: 10px;
+    padding: 9px;
+}
+
+.res-card{
+    width: 200px;
+   
+    padding: 4px;
+}
+
+.res-card:hover{
+    border:1px solid black;
+    cursor: pointer;
+}
+
+.search {
+    padding:4px;
+    margin: 2px;
+}
+
+.res-logo{
+    width: 198px;
+    height: 150px;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
