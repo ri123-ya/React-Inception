@@ -50,3 +50,23 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(jsxHeading);
 root.render(<Components />);
+
+# Food App Structure
+
+/*
+*Header
+-Logo
+-Nav
+*Body
+-Search
+-Resturant Card container
+  -Resturant list
+     -Img
+     -name,rating,cusine,price
+*Footer
+-Copyright
+-Links
+-Address
+-Contact
+*/
+
