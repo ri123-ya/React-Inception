@@ -70,3 +70,13 @@ root.render(<Components />);
 -Contact
 */
 
+....
+# HOOKS
+
+- Normal JS utility functions 
+- IMP : useState, useEffect
+
+# RENDER
+
+- Whenever State variable change  react rerender the component.
+ (State variable keep in sync UI Layer and Data Layer => Efficient DOM Manipulation)

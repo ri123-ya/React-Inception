@@ -47,3 +47,9 @@
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.body-bar{
+    display: flex;
+    margin:2px;
+    gap: 5px;
+}
