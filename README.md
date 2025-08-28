@@ -76,7 +76,20 @@ root.render(<Components />);
 - Normal JS utility functions 
 - IMP : useState, useEffect
 
-# RENDER
+# UseState
 
-- Whenever State variable change  react rerender the component.
+- Whenever State variable change  react rerender the component.(reconciliation cycle)
  (State variable keep in sync UI Layer and Data Layer => Efficient DOM Manipulation)
+
+ 
+# UseEffect
+- 2 Argument 
+     - Callback function
+     - dependency array
+- it is rendered after the components are rendered 
+- IMP: Body-> Render -> Api call -> render
+                           |
+                       with useEffect
+
+# Optional Chaining
+-  setListOfResturants(json?.data?.cards[2]?.data?.data?.cards);
