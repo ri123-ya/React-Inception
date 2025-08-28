@@ -1,15 +1,58 @@
 import ResturantCard from "./ResturantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const [listOfResturants, setListOfResturants] = useState(resList);
+  const [listOfResturants, setListOfResturants] = useState([]);
+  const [filterResturants, setfilterResturants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  return (
+  console.log("body Rendered");
+
+  useEffect(() => {
+    console.log("useEffect is called");
+    const timer = setTimeout(() => {
+      setListOfResturants(resList);
+      setfilterResturants(resList);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+    // fetchData();
+  }, []);
+
+  // const fetchData = async ()=>{
+  //   const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.25050&lng=77.40650&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  //   const json = data.json();
+  //   setListOfResturants(json?.data?.cards[2]?.data?.data?.cards);
+  // }
+
+  return listOfResturants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="body-bar">
-        
-        <div className="search">Search</div>
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            placeholder="Search for Resturant"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filterRes = listOfResturants.filter((res) =>
+                res.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setfilterResturants(filterRes);
+            }}
+          >
+            Search
+          </button>
+        </div>
 
         <div className="filter-btn">
           <button
@@ -23,10 +66,9 @@ const Body = () => {
             Top Rated Resturant
           </button>
         </div>
-
       </div>
       <div className="res-container">
-        {listOfResturants.map((resturant) => (
+        {filterResturants.map((resturant) => (
           <ResturantCard key={resturant.id} resData={resturant} />
         ))}
       </div>
