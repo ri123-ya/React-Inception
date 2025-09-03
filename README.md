@@ -77,7 +77,7 @@ root.render(<Components />);
 - IMP : useState, useEffect
 
 # UseState
-
+- Create Local State variable inside functional components
 - Whenever State variable change  react rerender the component.(reconciliation cycle)
  (State variable keep in sync UI Layer and Data Layer => Efficient DOM Manipulation)
 
@@ -86,10 +86,23 @@ root.render(<Components />);
 - 2 Argument 
      - Callback function
      - dependency array
-- it is rendered after the components are rendered 
+- it is rendered  every time components are rendered ---> when No dependency Array.
+- it is rendred just one time after the component rendered ---> when Empty dependency array []
+- it is rendered when the element in dependency array updated ---> [month] 
 - IMP: Body-> Render -> Api call -> render
                            |
                        with useEffect
 
 # Optional Chaining
 -  setListOfResturants(json?.data?.cards[2]?.data?.data?.cards);
+
+# SPA
+- in a single page only the components are interchanged . Whole page is not reloaded.
+
+# React Router Dom
+- Routing to diff. pages 
+- provides Link, RouterProvider, createBrowserRouter, Outlets
+
+# 2 Types of Routing
+- Client Side Routing(Just components interchange there is no netwrok call - only for first time and when calling api )
+- Server Side Routing(Earlier apps , server fetch the aboutUs.html and show the page, whole page is reladed)
