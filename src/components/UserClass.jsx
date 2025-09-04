@@ -8,11 +8,26 @@ class UserClass extends React.Component {
         this.state = {
             count: 0,
         }
+      
+      
+      console.log("Child constructor");
     }
+
+   componentDidMount(){
+    //for API Call 
+    //Works like useEffect
+            console.log("Child component did mount");
+
+   }
+
   render() {
     const {name} = this.props;
     const { count} = this.state;
-    return (
+
+            console.log("Child render");
+
+    
+            return (
       <div className="user-card">
         <p>Count Class = {count}</p>
         <button onClick={()=>{
