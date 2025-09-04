@@ -106,3 +106,7 @@ root.render(<Components />);
 # 2 Types of Routing
 - Client Side Routing(Just components interchange there is no netwrok call - only for first time and when calling api )
 - Server Side Routing(Earlier apps , server fetch the aboutUs.html and show the page, whole page is reladed)
+
+# Class components
+- JS class
+- user render method to return JS element
