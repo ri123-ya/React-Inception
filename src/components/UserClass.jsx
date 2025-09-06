@@ -1,47 +1,53 @@
 import React from "react";
 
 class UserClass extends React.Component {
-    constructor(props){
-        super(props);
-        console.log(props);
+  constructor(props) {
+    super(props);
+    console.log(props);
 
-        this.state = {
-            count: 0,
-        }
-      
-      
-      console.log("Child constructor");
-    }
+    this.state = {
+      userInfo: {
+        name: "dummy",
+        html_url: " dummy location",
+      },
+    };
 
-   componentDidMount(){
-    //for API Call 
+    console.log(this.props.name + " Child constructor");
+  }
+
+  async componentDidMount() {
+    //for API Call
     //Works like useEffect
-            console.log("Child component did mount");
+    const data = await fetch("https://api.github.com/users/riya");
+    const json = await data.json();
+    console.log(json);
 
-   }
+    this.setState({
+      userInfo: json,
+    });
 
+    console.log(this.props.name + " Child component did mount");
+  }
+
+  componentDidUpdate() {
+    console.log("Component Updated");
+  }
+  componentWillUnmount(){
+    console.log("Component will unmount");
+  }
   render() {
-    const {name} = this.props;
-    const { count} = this.state;
-
-            console.log("Child render");
-
+    console.log(this.props.name + " Child render");
+    const{name, html_url, avatar_url} = this.state.userInfo;
     
-            return (
+    return (
       <div className="user-card">
-        <p>Count Class = {count}</p>
-        <button onClick={()=>{
-            this.setState({
-                count: this.state.count +1,
-            })
-        }}>Class Increase</button>
-
+        <img src={avatar_url}/>
         <h2>Name: {name}</h2>
-        <h2>Age: 23</h2>
-        <h2>Place: Bangalore</h2>
+        <h2>Follow:{ html_url}</h2>
+       
       </div>
     );
-  };
-};
+  }
+}
 
 export default UserClass;

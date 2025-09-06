@@ -8,6 +8,8 @@ const About = () => {
       <p>This is about page.</p>
       <User  name={"Riya (function)"}/>
       <UserClass name={"Riya (Class)"}/>
+     
+
     </div>
   )
 }
