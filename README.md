@@ -110,3 +110,12 @@ root.render(<Components />);
 # Class components
 - JS class
 - user render method to return JS element
+
+# Decrease the Load Time of our App
+- Chunking
+- Code Splitting
+- Dynamic Bundling
+- Lazy Loading
+- On Demand Loading
+- Dynamic import
+- Using this will only load that component when demanded 
