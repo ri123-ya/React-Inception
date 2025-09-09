@@ -34,6 +34,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -101,6 +102,7 @@ const resList = [
     isOpen: true,
     aggregatedDiscountInfoV2: {},
     type: "F",
+    promoted:true,
     badgesV2: {
       entityBadges: {
         imageBased: {},
@@ -161,6 +163,7 @@ const resList = [
     isOpen: true,
     aggregatedDiscountInfoV2: {},
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -238,6 +241,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -311,6 +315,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:true,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -383,6 +388,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:true,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -458,6 +464,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -534,6 +541,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -607,6 +615,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:true,
     badgesV2: {
       entityBadges: {
         imageBased: {
@@ -683,6 +692,7 @@ const resList = [
     },
     isOpen: true,
     type: "F",
+    promoted:false,
     badgesV2: {
       entityBadges: {
         imageBased: {

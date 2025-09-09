@@ -1,4 +1,4 @@
-import ResturantCard from "./ResturantCard";
+import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,8 @@ const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
   const [filterResturants, setfilterResturants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  const ResturantCardwithLabel = withPromotedLabel(ResturantCard);
 
   console.log("body Rendered");
 
@@ -28,17 +30,12 @@ const Body = () => {
   //   const json = data.json();
   //   setListOfResturants(json?.data?.cards[2]?.data?.data?.cards);
   // }
-  
+
   const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus === false) {
-    return(
-      <h1>No Network, 
-        Please, 
-        check your Internet Connection!!
-      </h1>
-    );
-  };
+  if (onlineStatus === false) {
+    return <h1>No Network, Please, check your Internet Connection!!</h1>;
+  }
 
   return listOfResturants.length === 0 ? (
     <Shimmer />
@@ -82,8 +79,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filterResturants.map((resturant) => (
-          <Link to={"/resturant/"+resturant.id} key={resturant.id}>
-            <ResturantCard resData={resturant} />
+          <Link to={"/resturant/" + resturant.id} key={resturant.id}>
+           { resturant.promoted ? <ResturantCardwithLabel resData={resturant} />
+            : <ResturantCard resData={resturant} />}
           </Link>
         ))}
       </div>

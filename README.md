@@ -119,3 +119,7 @@ root.render(<Components />);
 - On Demand Loading
 - Dynamic import
 - Using this will only load that component when demanded 
+
+# Higher Order Components
+- take the components 
+- return the enhanced components
