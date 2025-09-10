@@ -6,6 +6,8 @@ import ResturantCategory from "./ResturantCategory";
 
 const ResturantMenu = () => {
 
+  const [showIndex, setShowIndex] = useState(null); 
+
   const { resId } = useParams();
 
   const resInfo = useResturantMenu(resId);
@@ -35,14 +37,16 @@ const ResturantMenu = () => {
         {cuisines.join(", ")} -- {costForTwoMessage}
       </p>
       {/** categories Accordions  */}
-      {categories.map((category) => (
+      {categories.map((category,index) => (
         <ResturantCategory
           key={category.card.card.categoryId}
           data={category.card.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={()=> setShowIndex(index)}
         />
       ))}
     </div>
   );
-};
+}; 
 
 export default ResturantMenu;
