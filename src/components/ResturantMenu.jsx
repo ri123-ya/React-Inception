@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResturantMenu from "../utils/hooks/useResturantMenu";
+import ResturantCategory from "./ResturantCategory";
 
 const ResturantMenu = () => {
-  console.log("component rendred");
 
   const { resId } = useParams();
-  console.log(resId);
 
   const resInfo = useResturantMenu(resId);
 
@@ -21,25 +20,27 @@ const ResturantMenu = () => {
   const itemCards = resInfo.cards.find((c) => c?.groupedCard)?.groupedCard
     ?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards;
 
-  // const{name, costForTwoMessage, cuisines} = resInfo?.cards[2]?.card?.card?.info;
-  // const {itemCards} = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card.card.itemCards;
+  const categories = resInfo.cards
+    .find((c) => c?.groupedCard)
+    ?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <p>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lg">
         {cuisines.join(", ")} -- {costForTwoMessage}
       </p>
-
-      <h2>Menu(Recommended)</h2>
-
-      <ul>
-        {itemCards.map((item) => (
-          <li key={item.card.info.id}>
-            {item.card.info.name} - Rs{item.card.info.price / 100}
-          </li>
-        ))}
-      </ul>
+      {/** categories Accordions  */}
+      {categories.map((category) => (
+        <ResturantCategory
+          key={category.card.card.categoryId}
+          data={category.card.card}
+        />
+      ))}
     </div>
   );
 };
