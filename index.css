@@ -27,7 +27,7 @@
 .nav > ul > li {
     list-style-type: none;
     margin: 10px;
-    padding: 9px;
+    /*padding: 9px; */
 }
 
 .res-card{
