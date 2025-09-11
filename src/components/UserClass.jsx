@@ -1,4 +1,5 @@
 import React from "react";
+import UserContext from "../utils/UserContext";
 
 class UserClass extends React.Component {
   constructor(props) {
@@ -32,19 +33,26 @@ class UserClass extends React.Component {
   componentDidUpdate() {
     console.log("Component Updated");
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     console.log("Component will unmount");
   }
   render() {
     console.log(this.props.name + " Child render");
-    const{name, html_url, avatar_url} = this.state.userInfo;
-    
+    const { name, html_url, avatar_url } = this.state.userInfo;
+
     return (
       <div className="user-card">
-        <img src={avatar_url}/>
+        <div>
+          LoggedInUser :
+          <UserContext.Consumer>
+            {({ loggedInUser }) => (
+              <h1 className="font-bold">{loggedInUser}</h1>
+            )}
+          </UserContext.Consumer>
+        </div>
+        <img src={avatar_url} />
         <h2>Name: {name}</h2>
-        <h2>Follow:{ html_url}</h2>
-       
+        <h2>Follow:{html_url}</h2>
       </div>
     );
   }
