@@ -1,42 +1,43 @@
-import  LOGO_URL  from "../utils/constant";
-import { useState } from "react";
+import LOGO_URL from "../utils/constant";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
+
+  const { loggedInUser } = useContext(UserContext);
+
   const status = useOnlineStatus();
   return (
     <div className="header">
-      <img
-        className="logo"
-        src= {LOGO_URL}
-        alt="Food Logo"
-      />
+      <img className="logo" src={LOGO_URL} alt="Food Logo" />
 
       <div className="nav">
         <ul>
-          <li>Status: {status? "Online": "Offline"}</li>
-          <li>
+          <li className="p-4 ">Status: {status ? "Online" : "Offline"}</li>
+          <li className="p-4 ">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-4 ">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="p-4 ">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="p-4 ">
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <h1 className="p-4 font-bold">{loggedInUser}</h1>
           </li>
-          <button className="login-btn"
+          <button
+            className="login-btn p-4"
             onClick={() => {
-             loginBtn === "Login"
-              ? setLoginBtn("LogOut") 
-              :  setLoginBtn("Login");
+              loginBtn === "Login"
+                ? setLoginBtn("LogOut")
+                : setLoginBtn("Login");
             }}
           >
             {loginBtn}

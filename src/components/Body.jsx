@@ -1,9 +1,10 @@
 import ResturantCard, { withPromotedLabel } from "./ResturantCard";
 import resList from "../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect , useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/hooks/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
@@ -36,6 +37,8 @@ const Body = () => {
   if (onlineStatus === false) {
     return <h1>No Network, Please, check your Internet Connection!!</h1>;
   }
+
+  const {setUserName, loggedInUser} = useContext(UserContext);
 
   return listOfResturants.length === 0 ? (
     <Shimmer />
@@ -75,6 +78,13 @@ const Body = () => {
           >
             Top Rated Resturant
           </button>
+        </div>
+         <div className="filter-btn">
+          <label>User Name : </label>
+          <input className="border border-black p-1 "
+           value={loggedInUser}
+           onChange={(e)=> setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="res-container">
