@@ -123,3 +123,22 @@ root.render(<Components />);
 # Higher Order Components
 - take the components 
 - return the enhanced components
+
+# Redux
+- manage global state
+- have multiple slices
+- eg. Shopping card ->
+                      Add button -> Dispatches (Action) -> call Func(Reducer func) -> Updates the slice of our redux store
+                                                                                                     ↓
+                                                                                              Selector(Subscribed to the Header)
+                                                                                                      ↓
+                                                                                              Cart value changes 
+
+- Steps : 
+- 1. Install @reduxjs/toolkit ans react-redux
+- 2. Build our store
+- 3. Connect our store to our app
+- 4. Slice (Cart slice)
+- 5. dispatch(action)
+- 6. Selector
+                                                                            
