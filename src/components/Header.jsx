@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/hooks/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
@@ -10,6 +11,9 @@ const Header = () => {
   const { loggedInUser } = useContext(UserContext);
 
   const status = useOnlineStatus();
+
+  //Subscribing to store using Selector
+  const cartItems = useSelector((store) => store.cart.items)
   return (
     <div className="header">
       <img className="logo" src={LOGO_URL} alt="Food Logo" />
@@ -28,6 +32,9 @@ const Header = () => {
           </li>
           <li className="p-4 ">
             <Link to="/grocery">Grocery</Link>
+          </li>
+           <li className="p-4">
+            <Link>🛒({cartItems.length} Items)</Link>
           </li>
           <li>
             <h1 className="p-4 font-bold">{loggedInUser}</h1>
