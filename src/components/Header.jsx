@@ -13,7 +13,8 @@ const Header = () => {
   const status = useOnlineStatus();
 
   //Subscribing to store using Selector
-  const cartItems = useSelector((store) => store.cart.items)
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log("Items Added to cart : ",cartItems);
   return (
     <div className="header">
       <img className="logo" src={LOGO_URL} alt="Food Logo" />
@@ -34,7 +35,7 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
            <li className="p-4">
-            <Link>🛒({cartItems.length} Items)</Link>
+            <Link to="/cart">🛒({cartItems.length} Items)</Link>
           </li>
           <li>
             <h1 className="p-4 font-bold">{loggedInUser}</h1>
