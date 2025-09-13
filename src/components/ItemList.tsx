@@ -7,8 +7,8 @@ const ItemList = ({ items }) => {
   const dispatch = useDispatch();
 
   //Dispatching an Action and calling Reducer function
-  const handleAddItems = () => {
-    dispatch(addItems("pizza"));
+  const handleAddItems = (item) => {
+    dispatch(addItems(item));
   };
 
   return (
@@ -35,7 +35,7 @@ const ItemList = ({ items }) => {
             <div className="absolute ">
               <button
                 className="p-1 mx-10 rounded-lg bg-black text-white shodow-lg"
-                onClick={handleAddItems}
+                onClick={() => handleAddItems(item)}
               >
                 Add +
               </button>
