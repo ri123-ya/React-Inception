@@ -141,4 +141,12 @@ root.render(<Components />);
 - 4. Slice (Cart slice)
 - 5. dispatch(action)
 - 6. Selector
+
+- App Store has -> reducer 
+- Slices have -> reducers (as there can be multiple actions with reducers function) and Export "reducer"
+- We are directly mutating the State and not compulsory to return it But in Vanilla redux Direct mutation was nto allowed and returning was compulsory
+
+- Redux behind the scene uses Immer Library
+- Either Mutate the existing state or return new state
+
                                                                             
