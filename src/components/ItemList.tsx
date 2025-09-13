@@ -1,6 +1,16 @@
 import { CDN_URL } from "../utils/constant";
+import { addItems } from "../utils/cartStore";
+import { useDispatch } from "react-redux";
 
 const ItemList = ({ items }) => {
+
+  const dispatch = useDispatch();
+
+  //Dispatching an Action and calling Reducer function
+  const handleAddItems = () => {
+    dispatch(addItems("pizza"));
+  };
+
   return (
     <div>
       {items.map((item) => (
@@ -11,14 +21,22 @@ const ItemList = ({ items }) => {
           <div className="w-9/12">
             <div className="py-2">
               <span>{item.card.info.name}</span>
-              <span>- ₹{item.card.info.price? item.card.info.price/100 : item.card.info.defaultPrice/100}</span>
+              <span>
+                - ₹
+                {item.card.info.price
+                  ? item.card.info.price / 100
+                  : item.card.info.defaultPrice / 100}
+              </span>
             </div>
             <p className="text-sm">{item.card.info.description}</p>
           </div>
 
           <div className="w-3/12 p-4">
             <div className="absolute ">
-              <button className="p-1 mx-10 rounded-lg bg-black text-white shodow-lg">
+              <button
+                className="p-1 mx-10 rounded-lg bg-black text-white shodow-lg"
+                onClick={handleAddItems}
+              >
                 Add +
               </button>
             </div>
