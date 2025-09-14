@@ -163,4 +163,13 @@ root.render(<Components />);
 - Configure Parcel , config file to disable default babel transpilation
 - Jest configuration (npx jest --init)
 - Install jsdom Library
+- Install @Babel/present-react - to make JSX work in test cases and include in babel config
+- Install @testing-library/jest-dom for toBeInTheDocument().
+- test("description", ()=>{
+  callback func
+})
+ or 
+it("description", ()=>{
+  callback func
+})
                                                                             
