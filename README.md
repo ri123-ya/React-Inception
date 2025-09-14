@@ -149,4 +149,18 @@ root.render(<Components />);
 - Redux behind the scene uses Immer Library
 - Either Mutate the existing state or return new state
 
+# Types of Testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing (e2e Testing)
+- Library used : React Testing Library (behind the scene uses "Jest Library")
+
+# Setting up Testing in our app
+- Install React Testing Library 
+- Installed jest 
+- Installed Babel dependencies
+- Configure Babel
+- Configure Parcel , config file to disable default babel transpilation
+- Jest configuration (npx jest --init)
+- Install jsdom Library
                                                                             
