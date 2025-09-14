@@ -14,7 +14,6 @@ const Header = () => {
 
   //Subscribing to store using Selector
   const cartItems = useSelector((store) => store.cart.items);
-  console.log("Items Added to cart : ",cartItems);
   return (
     <div className="header">
       <img className="logo" src={LOGO_URL} alt="Food Logo" />
