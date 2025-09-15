@@ -4,7 +4,8 @@
   "scripts": {
     "start": "parcel Hello_world.html",
     "build": "parcel build Hello_world.html",
-    "test": "jest"
+    "test": "jest",
+    "watch-test": "jest --watch"
   },
   "keywords": [],
   "author": "",
