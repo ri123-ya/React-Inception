@@ -17,12 +17,12 @@ const Body = () => {
 
   useEffect(() => {
     console.log("useEffect is called");
-    const timer = setTimeout(() => {
+    // const timer = setTimeout(() => {
       setListOfResturants(resList);
       setfilterResturants(resList);
-    }, 2000);
+    // }, 2000);
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
     // fetchData();
   }, []);
 
@@ -48,6 +48,7 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
+            data-testid="searchInput"
             className="search-box"
             placeholder="Search for Resturant"
             value={searchText}
